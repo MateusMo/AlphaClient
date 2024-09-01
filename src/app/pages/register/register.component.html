@@ -1,0 +1,50 @@
+<div class="container-fluid h-100 bg-dark">
+    <div class="row h-100">
+        <!-- Content Section -->
+        <div class="col-12 d-flex flex-column flex-md-row">
+            <!-- Left Section with Relative Positioning -->
+            <div class="left col-12 col-md-6 d-flex justify-content-center align-items-center p-4">
+                <!-- Top Section with Absolute Positioning -->
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="d-flex flex-column text-center">
+                    <label class="display-1 text-light mb-1 rubik-pixels-regular">Alpha Link</label>
+                    <label class="display-5 text-light mb-3">Register</label>
+
+                    <!-- Name Input -->
+                    <input type="text" placeholder="Name" class="form-control rounded mb-2 p-2 w-100 w-md-auto"
+                        aria-label="Name" formControlName="name">
+
+                    <!-- Email Input -->
+                    <input type="email" placeholder="Email" class="form-control rounded mb-2 p-2 w-100 w-md-auto"
+                        aria-label="Email" formControlName="email">
+
+                    <!-- Password Input -->
+                    <input type="password" placeholder="Password" class="form-control rounded mb-2 p-2 w-100 w-md-auto"
+                        aria-label="Password" formControlName="password">
+
+                    <!-- Title Input -->
+                    <input type="text" placeholder="Title" class="form-control rounded mb-2 p-2 w-100 w-md-auto"
+                        aria-label="Title" formControlName="title">
+
+                    <!-- Description Input -->
+                    <textarea placeholder="Description" class="form-control rounded mb-3 p-2 w-100 w-md-auto"
+                        aria-label="Description" formControlName="description"></textarea>
+
+                    <button type="submit" class="btn btn-outline-light mb-2" aria-label="Register">Register</button>
+                    <a [routerLink]="['']" href="#" class="text-light text-decoration-none d-inline"
+                        aria-label="Back">Back</a>
+                </form>
+            </div>
+            <!-- Right Section -->
+            <div class="right col-12 col-md-6 d-flex justify-content-center align-items-center p-4">
+                <img src="../../assets/svgs/Login.svg" class="img-fluid w-75 d-none d-md-block" alt="Login"
+                    title="Login Image">
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-modals #confirmationModal 
+[showOkButton]="true" 
+[showCancelButton]="false">
+    <p>{{this.modalMessage}}</p>
+</app-modals>

@@ -1,0 +1,18 @@
+<!-- Modal -->
+<div class="modal fade bg-dark text-light" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark text-light" style="border: 1px solid #fff;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmationModalLabel">Confirmation</h5>
+                <button type="button" class="btn-close" (click)="onCancelClick()" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ng-content></ng-content>
+            </div>
+            <div class="modal-footer">
+                <button *ngIf="showCancelButton" type="button" class="btn btn-outline-light" (click)="onCancelClick()">Cancel</button>
+                <button *ngIf="showOkButton" type="button" class="btn btn-outline-light" (click)="onOkClick()">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>

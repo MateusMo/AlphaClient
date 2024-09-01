@@ -1,0 +1,37 @@
+<div class="container-fluid h-100 bg-dark">
+    <div class="row h-100">
+        <!-- Content Section -->
+        <div class="col-12 d-flex flex-column flex-md-row">
+            <!-- Left Section with Relative Positioning -->
+            <div class="left col-12 col-md-6 d-flex justify-content-center align-items-center p-4">
+                <!-- Top Section with Absolute Positioning -->
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="d-flex flex-column text-center">
+                    <label class="display-1 text-light mb-1 rubik-pixels-regular">Alpha Link</label>
+                    <label class="display-5 text-light mb-3">Login</label>
+
+                    <input formControlName="email" type="email" placeholder="Email"
+                        class="form-control rounded mb-2 p-2 w-100 w-md-auto" aria-label="Email">
+                    <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-danger">
+                        Please enter a valid email address.
+                    </div>
+
+                    <input formControlName="password" type="password" placeholder="Password"
+                        class="form-control rounded mb-3 p-2 w-100 w-md-auto" aria-label="Password">
+                    <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+                        class="text-danger">
+                        Password is required.
+                    </div>
+
+                    <button class="btn btn-outline-light mb-2" type="submit" [disabled]="loginForm.invalid"
+                        aria-label="Login">Login</button>
+                    <a [routerLink]="['/register']" class="text-light text-decoration-none d-inline"
+                        aria-label="Register">Register</a>
+                </form>
+            </div>
+            <!-- Right Section -->
+            <div class="right col-12 col-md-6 d-flex justify-content-center align-items-center p-4">
+                <img src="../../assets/svgs/Login.svg" class="img-fluid w-75" alt="Login" title="Login Image">
+            </div>
+        </div>
+    </div>
+</div>

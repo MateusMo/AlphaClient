@@ -28,14 +28,15 @@ export class LoginComponent {
           if (response.status === 200) {
             const token = response.data['Token'];
             const user = response.data['User'];
-            // Handle successful login, maybe store token and redirect
-          } else {
-            // Handle error response
-            console.error('Login failed:', response.message);
           }
         },
         error: (error) => {
-          console.error('HTTP Error:', error);
+          if(error.error.data.Data.status === 403){
+            //criar validação do email enviado
+          }
+          if(error.error.data.Data.status === 409){
+            //aviso de senha errada
+          }
         }
       });
     } else {
